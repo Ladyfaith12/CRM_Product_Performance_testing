@@ -12,7 +12,7 @@ scenarios:
   - name: "Get Info"
     flow:
       - function: "getToken"
-      - get:
+      - delete:
           url: "/v1/contacts/info"
           headers:
             Authorization: "Bearer {{ token }}"
