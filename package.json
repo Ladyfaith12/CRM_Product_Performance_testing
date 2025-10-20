@@ -4,8 +4,16 @@
   "description": "performance testing for the crm product",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "getContacts": "artillery run ./Contact-service/getContacts.yml",
+    "login": "artillery run ./Contact-service/login.yml"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "artillery": "^2.0.26",
+    "axios": "^1.12.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
 }

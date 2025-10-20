@@ -1,0 +1,19 @@
+config:
+  target: "https://staging-dashboard.cliquidator.info"
+  tls: 
+    rejectUnauthorized: false
+  processor: '../login_processor.js'
+  phases:
+    - name: "load testing"
+      duration: 2
+      arrivalRate: 1
+
+scenarios:
+  - name: "Get Contacts"
+    flow:
+      - function: "getToken"
+      - get:
+          url: "/v1/contacts/classes"
+          headers:
+            Authorization: "Bearer {{ token }}"
+            Content-Type: "application/json"
