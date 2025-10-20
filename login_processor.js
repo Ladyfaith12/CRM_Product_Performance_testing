@@ -6,7 +6,7 @@ module.exports = {
     try {
       // console.log("Attempting login with:", process.env.TEST_USER);
       
-      const response = await axios.post('https://staging-app.cliquidator.info/login', {
+      const response = await axios.post(`${process.env.LOGIN_URL}/login`, {
         username: process.env.TEST_USER,
         password: process.env.TEST_PASS,
       }, {

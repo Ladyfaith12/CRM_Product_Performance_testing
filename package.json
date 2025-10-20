@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "getContacts": "artillery run ./Contact-service/getContacts.yml",
-    "login": "artillery run ./Contact-service/login.yml"
+    "info": "artillery run ./Contact-service/info.yml"
+   
   },
   "author": "",
   "license": "ISC",
