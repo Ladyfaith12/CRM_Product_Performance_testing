@@ -6,7 +6,8 @@
   "scripts": {
     "getContacts": "artillery run ./Contact-service/getContacts.yml",
     "info": "artillery run ./Contact-service/info.yml",
-    "createContact": "artillery run ./Contact-service/createContact.yml"
+    "createContact": "artillery run ./Contact-service/createContact.yml",
+    "getAssets": "artillery run ./Assert-Promotion-service/getAssets.yml"
    
   },
   "author": "",
