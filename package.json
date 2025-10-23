@@ -10,7 +10,9 @@
 
 
     "getAssets": "artillery run ./Assert-Promotion-service/getAssets.yml",
-     "getDistricts": "artillery run ./Assert-Promotion-service/getDistricts.yml"
+     "getDistricts": "artillery run ./Assert-Promotion-service/getDistricts.yml",
+     "getRegions": "artillery run ./Assert-Promotion-service/getRegions.yml"
+   
    
   },
   "author": "",
