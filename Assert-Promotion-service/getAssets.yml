@@ -1,0 +1,26 @@
+config:
+  target: "https://staging-dashboard.cliquidator.info"
+  tls: 
+    rejectUnauthorized: false
+  processor: '../login_processor.js'
+  phases:
+    - name: "load testing"
+      duration: 2
+      arrivalRate: 1
+
+scenarios:
+  - name: "Get Assets"
+    flow:
+      - function: "getToken"
+      - get:
+          url: "/v1/crm/asset-promotion"
+          headers:
+            Authorization: "Bearer {{ token }}"
+            Content-Type: "application/json"
+          capture:
+            - json: "$[0].id"
+              as: "assertId"
+            - json: "$[0].cliq_lead_id"
+              as: "cliqId"
+      - log: "Assert Id: {{ assertId }}"
+      - log: "Cliq id: {{ cliqId }}"

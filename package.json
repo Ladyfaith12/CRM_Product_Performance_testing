@@ -6,7 +6,16 @@
   "scripts": {
     "getContacts": "artillery run ./Contact-service/getContacts.yml",
     "info": "artillery run ./Contact-service/info.yml",
-    "createContact": "artillery run ./Contact-service/createContact.yml"
+    "createContact": "artillery run ./Contact-service/createContact.yml",
+
+
+    "Assets": "artillery run ./Assert-Promotion-service/getAssets.yml",
+    "Districts": "artillery run ./Assert-Promotion-service/getDistricts.yml",
+    "Regions": "artillery run ./Assert-Promotion-service/getRegions.yml",
+    "UpcomingAuctions": "artillery run ./Assert-Promotion-service/getUpcomingAuctions.yml",
+    "UserInfo": "artillery run ./Assert-Promotion-service/getEmployeeinfo.yml",
+    "filters": "artillery run ./Assert-Promotion-service/filters.yml"
+   
    
   },
   "author": "",

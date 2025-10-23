@@ -1,0 +1,26 @@
+config:
+  target: "https://staging-dashboard.cliquidator.info"
+  tls: 
+    rejectUnauthorized: false
+  processor: '../login_processor.js'
+  phases:
+    - name: "load testing"
+      duration: 2
+      arrivalRate: 1
+
+scenarios:
+  - name: "Get Upcoming Auctions"
+    flow:
+      - function: "getToken"
+      - get:
+          url: "/v2/leads/listall/upcomingauctions"
+          headers:
+            Authorization: "Bearer {{ token }}"
+            Content-Type: "application/json"
+          capture:
+            - json: "$.upcomingAuctions[0].auction_id"
+              as: "AuctionId"
+            - json: "$.upcomingAuctions[0].title"
+              as: "title"  
+      - log: "Auction Id: {{ AuctionId }}"
+      - log: "Title: {{ title }}"
