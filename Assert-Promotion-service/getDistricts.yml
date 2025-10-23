@@ -9,7 +9,7 @@ config:
       arrivalRate: 1
 
 scenarios:
-  - name: "Get Assets"
+  - name: "Get Districts"
     flow:
       - function: "getToken"
       - get:

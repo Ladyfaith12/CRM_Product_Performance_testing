@@ -9,15 +9,18 @@ config:
       arrivalRate: 1
 
 scenarios:
-  - name: "Get Regions"
+  - name: "Get User Information"
     flow:
       - function: "getToken"
       - get:
-          url: "/v1/regions"
+          url: "/v1/employees/524427"
           headers:
             Authorization: "Bearer {{ token }}"
             Content-Type: "application/json"
           capture:
-            - json: "$.sucess"
-              as: "status"
-      - log: "status: {{ status }}"
+            - json: "$.id"
+              as: "userId"
+            - json: "$.userName"
+              as: "userName"  
+      - log: "User Id: {{ userId}}"
+      - log: "User Name: {{ userName}}"
