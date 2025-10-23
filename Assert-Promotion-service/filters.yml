@@ -1,0 +1,28 @@
+config:
+  target: "https://staging-dashboard.cliquidator.info"
+  tls: 
+    rejectUnauthorized: false
+  processor: '../main_processor.js'
+  phases:
+    - name: "load testing"
+      duration: 2
+      arrivalRate: 1
+
+scenarios:
+  - name: "Accessing the Filters route"
+    flow:
+      - function: "getToken"
+      - function: "assertPromotionFiltersData"
+      - post:
+          url: "/v1/inventory/filter"
+          headers:
+            Authorization: "Bearer {{ token }}"
+            Content-Type: "application/json"
+          json:  "{{ assertPromotionFilterData  }}"  
+          capture:
+            - json: "$.timed_out"
+              as: "timeOut"
+            - json: "$.took"
+              as: "took"
+      - log: "Time Out: {{ timeOut }}"
+      - log: "Took: {{ took }}"
