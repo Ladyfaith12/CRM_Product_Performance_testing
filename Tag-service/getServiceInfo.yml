@@ -1,0 +1,27 @@
+config:
+  target: "https://staging-dashboard.cliquidator.info"
+  tls: 
+    rejectUnauthorized: false
+  processor: '../login_processor.js'
+  phases:
+    - name: "load testing"
+      duration: 2
+      arrivalRate: 1
+
+scenarios:
+  - name: "Get Service Info"
+    flow:
+      - function: "getToken"
+      - get:
+          url: "/v1/tags/info"
+          headers:
+            Authorization: "Bearer {{ token }}"
+            Content-Type: "application/json"
+          capture:
+            - json: "$.name"
+              as: "name"
+              strict: false
+            - json: "$.description"
+              as: "description"
+              strict: false
+      - log: "name: {{ name }}, description: {{ description }}"

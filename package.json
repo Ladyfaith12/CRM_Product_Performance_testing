@@ -14,7 +14,11 @@
     "Regions": "artillery run ./Assert-Promotion-service/getRegions.yml",
     "UpcomingAuctions": "artillery run ./Assert-Promotion-service/getUpcomingAuctions.yml",
     "UserInfo": "artillery run ./Assert-Promotion-service/getEmployeeinfo.yml",
-    "filters": "artillery run ./Assert-Promotion-service/filters.yml"
+    "filters": "artillery run ./Assert-Promotion-service/filters.yml",
+
+
+    "Tags": "artillery run ./Tag-service/getServiceinfo.yml"
+
    
    
   },
