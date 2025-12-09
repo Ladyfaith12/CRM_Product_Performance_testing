@@ -22,5 +22,9 @@ scenarios:
               as: "description"
             - json: "$[0].label"
               as: "label"
+            - json: "$[0].id"
+              as: "tagId"
+              strict: false  
+      - log: "tagId: {{ tagId }}"  
       - log: "description: {{ description }}"
       - log: "label: {{ label }}"
