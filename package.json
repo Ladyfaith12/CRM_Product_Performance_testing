@@ -17,7 +17,8 @@
     "filters": "artillery run ./Assert-Promotion-service/filters.yml",
 
 
-    "Tags": "artillery run ./Tag-service/getServiceinfo.yml"
+    "Tags": "artillery run ./Tag-service/getServiceinfo.yml",
+    "AllTags": "artillery run ./Tag-service/getAllTags.yml"
 
    
    

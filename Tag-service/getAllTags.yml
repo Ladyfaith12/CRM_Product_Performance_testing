@@ -9,19 +9,18 @@ config:
       arrivalRate: 1
 
 scenarios:
-  - name: "Get Service Info"
+  - name: "Get List Of All Tags"
     flow:
       - function: "getToken"
       - get:
-          url: "/v1/tags/info"
+          url: "/v1/tags"
           headers:
             Authorization: "Bearer {{ token }}"
             Content-Type: "application/json"
           capture:
-            - json: "$.name"
-              as: "name"
-              strict: false
-            - json: "$.description"
+            - json: "$[0].description"
               as: "description"
-              strict: false
-      - log: "name: {{ name }}, description: {{ description }}"
+            - json: "$[0].label"
+              as: "label"
+      - log: "description: {{ description }}"
+      - log: "label: {{ label }}"
