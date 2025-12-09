@@ -18,7 +18,8 @@
 
 
     "Tags": "artillery run ./Tag-service/getServiceinfo.yml",
-    "AllTags": "artillery run ./Tag-service/getAllTags.yml"
+    "AllTags": "artillery run ./Tag-service/getAllTags.yml",
+    "singleTag": "artillery run ./Tag-service/getTagById.yml"
 
    
    

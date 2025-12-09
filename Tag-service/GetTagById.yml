@@ -9,22 +9,22 @@ config:
       arrivalRate: 1
 
 scenarios:
-  - name: "Get List Of All Tags"
+  - name: "Get a Single Tag by Id"
     flow:
       - function: "getToken"
       - get:
-          url: "/v1/tags"
+          url: "/v1/tags/1"
           headers:
             Authorization: "Bearer {{ token }}"
             Content-Type: "application/json"
           capture:
-            - json: "$[0].description"
+            - json: "$.description"
               as: "description"
-            - json: "$[0].label"
+            - json: "$.label"
               as: "label"
-            - json: "$[0].id"
+            - json: "$.id"
               as: "tagId"
               strict: false  
       - log: "tagId: {{ tagId }}"  
       - log: "description: {{ description }}"
-      - log: "label: {{ label }}" 
+      - log: "label: {{ label }}"
