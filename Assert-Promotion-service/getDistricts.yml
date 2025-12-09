@@ -23,4 +23,4 @@ scenarios:
             - json: "$[0].label"
               as: "label"
       - log: "district Id: {{ districtId }}"
-      - log: "label: {{ label }}"
+      - log: "label: {{ label }}"   
